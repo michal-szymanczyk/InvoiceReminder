@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Dev\workspace\InvoiceReminder\InvoiceReminder.DAL\DBModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Dev\workspace_net\InvoiceReminder\InvoiceReminder.DAL\DBModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

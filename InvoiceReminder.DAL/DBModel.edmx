@@ -13,38 +13,27 @@
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="DBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
         <EntityContainer Name="DBModelContainer" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Users" EntityType="DBModel.Users" />
           <EntitySet Name="Documents" EntityType="DBModel.Documents" />
           <EntitySet Name="DocCategories" EntityType="DBModel.DocCategories" />
           <AssociationSet Name="DocCategoriesDocuments" Association="DBModel.DocCategoriesDocuments">
             <End Role="DocCategories" EntitySet="DocCategories" />
             <End Role="Documents" EntitySet="Documents" />
           </AssociationSet>
-          <AssociationSet Name="UsersDocuments" Association="DBModel.UsersDocuments">
-            <End Role="Users" EntitySet="Users" />
+          <EntitySet Name="Reminders" EntityType="DBModel.Reminders" />
+          <AssociationSet Name="RemindersDocuments" Association="DBModel.RemindersDocuments">
+            <End Role="Reminders" EntitySet="Reminders" />
             <End Role="Documents" EntitySet="Documents" />
           </AssociationSet>
-          <EntitySet Name="Reminders" EntityType="DBModel.Reminders" />
         </EntityContainer>
-        <EntityType Name="Users">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" Nullable="false" />
-          <Property Name="Login" Type="String" Nullable="false" ConcurrencyMode="None" />
-          <Property Name="PasswordHash" Type="String" Nullable="false" />
-          <NavigationProperty Name="Documents" Relationship="DBModel.UsersDocuments" FromRole="Users" ToRole="Documents" />
-        </EntityType>
         <EntityType Name="Documents">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" />
-          <Property Name="SubmitDate" Type="DateTime" Nullable="false" />
+          <Property Name="SubmitedDate" Type="DateTime" Nullable="false" />
           <Property Name="FileHash" Type="String" Nullable="false" />
-          <Property Name="TypeOfCost" Type="Int16" Nullable="false" >
+          <Property Name="CostType" Type="Int16" Nullable="false" >
             <Documentation>
               <LongDescription>Type of registered document:
 0 - Uknown type (we do not )
@@ -55,7 +44,7 @@
           <Property Name="NetAmount" Type="Double" Nullable="false" />
           <Property Name="TaxRate" Type="Int16" Nullable="false" DefaultValue="0" />
           <NavigationProperty Name="Category" Relationship="DBModel.DocCategoriesDocuments" FromRole="Documents" ToRole="DocCategories" />
-          <NavigationProperty Name="Owner" Relationship="DBModel.UsersDocuments" FromRole="Documents" ToRole="Users" />
+          <NavigationProperty Name="Reminder" Relationship="DBModel.RemindersDocuments" FromRole="Documents" ToRole="Reminders" />
         </EntityType>
         <EntityType Name="DocCategories">
           <Key>
@@ -66,10 +55,6 @@
         </EntityType>
         <Association Name="DocCategoriesDocuments">
           <End Type="DBModel.DocCategories" Role="DocCategories" Multiplicity="1" />
-          <End Type="DBModel.Documents" Role="Documents" Multiplicity="*" />
-        </Association>
-        <Association Name="UsersDocuments">
-          <End Type="DBModel.Users" Role="Users" Multiplicity="1" />
           <End Type="DBModel.Documents" Role="Documents" Multiplicity="*" />
         </Association>
         <EntityType Name="Reminders">
@@ -88,12 +73,16 @@
               <LongDescription>End date of reminder activeneses</LongDescription>
             </Documentation>
           </Property>
-          <Property Name="RateInterval" Type="String" Nullable="false" >
+          <Property Name="RemindInterval" Type="String" Nullable="false" >
             <Documentation>
               <LongDescription>Time span after each (starting from StartDate) the reminder should require an document input</LongDescription>
             </Documentation>
           </Property>
         </EntityType>
+        <Association Name="RemindersDocuments">
+          <End Type="DBModel.Reminders" Role="Reminders" Multiplicity="0..1" />
+          <End Type="DBModel.Documents" Role="Documents" Multiplicity="*" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

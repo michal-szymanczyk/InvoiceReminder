@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceReminder.Web", "InvoiceReminder\InvoiceReminder.Web.csproj", "{87A5025F-AAB1-42E8-B983-2DDE6109393F}"
 EndProject
@@ -10,6 +10,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Layers", "Layers", "{68F25158-F39A-40C1-8600-78D6D382EF0B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceReminder.DAL", "InvoiceReminder.DAL\InvoiceReminder.DAL.csproj", "{FBC3B616-9F70-42F6-A918-9B83361BB3D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceReminder.Common", "InvoiceReminder.Common\InvoiceReminder.Common.csproj", "{E2895B4F-BE44-4D19-BC5C-8BCDC5A0CE3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceReminder.BLL", "InvoiceReminder.BLL\InvoiceReminder.BLL.csproj", "{B2A498A7-DC86-4206-8DE1-8C198394640C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +29,14 @@ Global
 		{FBC3B616-9F70-42F6-A918-9B83361BB3D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBC3B616-9F70-42F6-A918-9B83361BB3D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBC3B616-9F70-42F6-A918-9B83361BB3D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2895B4F-BE44-4D19-BC5C-8BCDC5A0CE3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2895B4F-BE44-4D19-BC5C-8BCDC5A0CE3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2895B4F-BE44-4D19-BC5C-8BCDC5A0CE3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2895B4F-BE44-4D19-BC5C-8BCDC5A0CE3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2A498A7-DC86-4206-8DE1-8C198394640C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2A498A7-DC86-4206-8DE1-8C198394640C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2A498A7-DC86-4206-8DE1-8C198394640C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2A498A7-DC86-4206-8DE1-8C198394640C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,5 +44,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{87A5025F-AAB1-42E8-B983-2DDE6109393F} = {73617118-3C75-4456-A67B-EAFDC7611E51}
 		{FBC3B616-9F70-42F6-A918-9B83361BB3D2} = {68F25158-F39A-40C1-8600-78D6D382EF0B}
+		{E2895B4F-BE44-4D19-BC5C-8BCDC5A0CE3C} = {68F25158-F39A-40C1-8600-78D6D382EF0B}
+		{B2A498A7-DC86-4206-8DE1-8C198394640C} = {68F25158-F39A-40C1-8600-78D6D382EF0B}
 	EndGlobalSection
 EndGlobal
