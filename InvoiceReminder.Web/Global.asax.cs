@@ -13,6 +13,7 @@ namespace InvoiceReminder.Web
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            DependencyResolver.SetResolver(IoCConfig.CreateResolver());
         }
         
     }

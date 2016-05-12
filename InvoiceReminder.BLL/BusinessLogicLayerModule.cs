@@ -14,7 +14,7 @@ namespace InvoiceReminder.BLL
         {
             // register all handlers found in this module:
             builder.RegisterAssemblyTypes(ThisAssembly)
-                .AsClosedTypesOf(typeof(IAsyncFeatureHandler<,>))
+                .AsClosedTypesOf(typeof(IAsyncRequestHandler<,>))
                 .AsImplementedInterfaces();
         }
     }

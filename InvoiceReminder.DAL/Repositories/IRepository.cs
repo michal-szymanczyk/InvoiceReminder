@@ -16,12 +16,6 @@ namespace InvoiceReminder.DAL.Repositories
     {
         #region - Sync calls
         /// <summary>
-        /// Get Query object for complex Select queries
-        /// </summary>
-        /// <returns>Query object</returns>
-        IQueryable<T> QueryAll();
-
-        /// <summary>
         /// Query for a row with specified id
         /// </summary>
         /// <param name="id">Id of row read from DB</param>
@@ -52,8 +46,14 @@ namespace InvoiceReminder.DAL.Repositories
         void Flush();
 
         #endregion
-        
+
         #region - Async calls
+        /// <summary>
+        /// Get Query object for complex Select queries
+        /// </summary>
+        /// <param name="query">Query to execute on DB</param>
+        /// <returns>Query object</returns>
+        Task<IList<T>> QueryAsync(Func<IQueryable<T>, IQueryable<T>> query);
 
         /// <summary>
         /// Query for a row with specified id - asynchronous call

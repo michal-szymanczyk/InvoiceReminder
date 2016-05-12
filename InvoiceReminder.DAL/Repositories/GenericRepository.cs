@@ -25,11 +25,6 @@ namespace InvoiceReminder.DAL.Repositories
 
         #region - Sync calls
 
-        public IQueryable<T> QueryAll()
-        {
-            return _context.Set<T>().AsQueryable();
-        }
-
         public T GetById(int id)
         {
             return _context.Set<T>().Find(id);
@@ -59,6 +54,11 @@ namespace InvoiceReminder.DAL.Repositories
         #endregion
 
         #region - Async calls
+        
+        public async Task<IList<T>> QueryAsync(Func<IQueryable<T>, IQueryable<T>> query)
+        {
+            return await query(_context.Set<T>()).ToListAsync();
+        }
 
         public async Task<T> GetByIdAsync(int id)
         {

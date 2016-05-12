@@ -45,8 +45,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\BaseEntity.cs" />
-    <Compile Include="Entities\DocCategoryEntity.cs" />
-    <Compile Include="Entities\DocumentEntity.cs" />
+    <Compile Include="Entities\DocumentTypeEntity.cs" />
+    <Compile Include="Entities\Documents\DocumentEntity.cs" />
+    <Compile Include="Entities\Documents\InvoiceEntity.cs" />
     <Compile Include="Entities\ReminderEntity.cs" />
     <Compile Include="Infrastructure\IOperationUnitScope.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

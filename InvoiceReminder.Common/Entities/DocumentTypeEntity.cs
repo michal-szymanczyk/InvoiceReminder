@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InvoiceReminder.Common.Entities
 {
-    public class DocCategoryEntity : BaseEntity
+    public class DocumentTypeEntity : BaseEntity
     {
         public string Name { get; set; }
     }

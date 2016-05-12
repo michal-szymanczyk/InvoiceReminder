@@ -49,11 +49,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLogicLayerModule.cs" />
-    <Compile Include="Features\Base\IAsyncFeatureHandler.cs" />
+    <Compile Include="Features\Base\IAsyncRequestHandler.cs" />
     <Compile Include="Features\Base\IRequestModel.cs" />
     <Compile Include="Features\Base\IResultModel.cs" />
     <Compile Include="Features\Documents\Index.cs" />
-    <Compile Include="Features\Documents\IndexAll.cs" />
+    <Compile Include="Features\Documents\GetSpecific.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

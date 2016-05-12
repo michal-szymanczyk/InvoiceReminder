@@ -10,7 +10,7 @@ namespace InvoiceReminder.BLL.Features.Base
     /// Base async handler interface for all features actions
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface IAsyncFeatureHandler<in TRequest, TResult> 
+    public interface IAsyncRequestHandler<in TRequest, TResult> 
         where TRequest : IRequestModel
         where TResult : IResultModel
     {

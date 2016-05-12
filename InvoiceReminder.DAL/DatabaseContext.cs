@@ -1,4 +1,5 @@
 ﻿using InvoiceReminder.Common.Entities;
+using InvoiceReminder.Common.Entities.Documents;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -13,7 +14,7 @@ namespace InvoiceReminder.DAL
 
         public DbSet<DocumentEntity> Documents { get; set; }
         public DbSet<ReminderEntity> Reminders { get; set; }
-        public DbSet<DocCategoryEntity> DocCategories { get; set; }
+        public DbSet<DocumentTypeEntity> DocCategories { get; set; }
         
     }
 }
