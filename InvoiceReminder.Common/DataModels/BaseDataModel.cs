@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InvoiceReminder.Common.Entities
+namespace InvoiceReminder.Common.DataModels
 {
-    public class DocumentTypeEntity : BaseEntity
+    public class BaseDataModel
     {
-        public string Name { get; set; }
+        public int Id { get; set; }
     }
 }

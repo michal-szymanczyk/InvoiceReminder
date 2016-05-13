@@ -54,6 +54,7 @@
     <Compile Include="Features\Base\IResultModel.cs" />
     <Compile Include="Features\Documents\Index.cs" />
     <Compile Include="Features\Documents\GetSpecific.cs" />
+    <Compile Include="Helpers\MapperConfigHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

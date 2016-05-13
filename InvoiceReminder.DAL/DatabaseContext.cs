@@ -1,5 +1,5 @@
-﻿using InvoiceReminder.Common.Entities;
-using InvoiceReminder.Common.Entities.Documents;
+﻿using InvoiceReminder.Common.DataModels;
+using InvoiceReminder.Common.DataModels.Documents;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -12,9 +12,9 @@ namespace InvoiceReminder.DAL
     class DatabaseContext : DbContext
     {
 
-        public DbSet<DocumentEntity> Documents { get; set; }
-        public DbSet<ReminderEntity> Reminders { get; set; }
-        public DbSet<DocumentTypeEntity> DocCategories { get; set; }
+        public DbSet<Document> Documents { get; set; }
+        public DbSet<Reminder> Reminders { get; set; }
+        public DbSet<DocumentType> DocCategories { get; set; }
         
     }
 }

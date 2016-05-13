@@ -1,4 +1,4 @@
-﻿using InvoiceReminder.Common.Entities;
+﻿using InvoiceReminder.Common.DataModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +12,7 @@ namespace InvoiceReminder.DAL.Repositories
     /// </summary>
     /// <typeparam name="T">Entity type</typeparam>
     public interface IRepository<T> 
-        where T : BaseEntity
+        where T : class
     {
         #region - Sync calls
         /// <summary>

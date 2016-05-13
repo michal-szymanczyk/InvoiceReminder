@@ -44,11 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\BaseEntity.cs" />
-    <Compile Include="Entities\DocumentTypeEntity.cs" />
-    <Compile Include="Entities\Documents\DocumentEntity.cs" />
-    <Compile Include="Entities\Documents\InvoiceEntity.cs" />
-    <Compile Include="Entities\ReminderEntity.cs" />
+    <Compile Include="DataModels\BaseDataModel.cs" />
+    <Compile Include="DataModels\DocumentTypeDataModel.cs" />
+    <Compile Include="DataModels\Documents\DocumentDataModel.cs" />
+    <Compile Include="DataModels\Documents\InvoiceDataModel.cs" />
+    <Compile Include="DataModels\ReminderDataModel.cs" />
     <Compile Include="Infrastructure\IOperationUnitScope.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

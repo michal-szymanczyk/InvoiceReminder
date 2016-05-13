@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InvoiceReminder.Common.Entities.Documents
+namespace InvoiceReminder.Common.DataModels.Documents
 {
-    public class DocumentEntity : BaseEntity
+    public class DocumentDataModel : BaseDataModel
     {
         public string Name { get; set; }
         public DateTime SubmitedDate { get; set; }
         public string FileHash { get; set; }
 
-        public virtual DocumentTypeEntity Category { get; set; }
-        public virtual ReminderEntity Reminder { get; set; }
+        public virtual DocumentTypeDataModel Category { get; set; }
+        public virtual ReminderDataModel Reminder { get; set; }
     }
 }

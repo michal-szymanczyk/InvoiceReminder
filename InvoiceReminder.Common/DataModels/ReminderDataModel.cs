@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InvoiceReminder.Common.Entities
+namespace InvoiceReminder.Common.DataModels
 {
-    public class ReminderEntity : BaseEntity
+    public class ReminderDataModel : BaseDataModel
     {
         public string Name { get; set; }
         public DateTime StartDate { get; set; }

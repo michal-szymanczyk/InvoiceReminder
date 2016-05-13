@@ -1,5 +1,7 @@
 ﻿using Autofac;
+using AutoMapper;
 using InvoiceReminder.BLL.Features.Base;
+using InvoiceReminder.BLL.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +14,9 @@ namespace InvoiceReminder.BLL
     {
         protected override void Load(ContainerBuilder builder)
         {
+            // register automapper to use inside this 
+            builder.RegisterInstance<IMapper>(new MapperConfigHelper().CreateMapper());
+            
             // register all handlers found in this module:
             builder.RegisterAssemblyTypes(ThisAssembly)
                 .AsClosedTypesOf(typeof(IAsyncRequestHandler<,>))
