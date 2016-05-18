@@ -12,6 +12,8 @@ namespace InvoiceReminder.DAL
     {
         protected override void Load(ContainerBuilder builder)
         {
+            builder.RegisterType(typeof(DatabaseContext)).AsSelf();
+
             builder.RegisterGeneric(typeof(GenericRepository<>))
                 .As(typeof(IRepository<>))
                 .InstancePerDependency(); // it could be per "IOperationUnitScope"

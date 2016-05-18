@@ -1,0 +1,11 @@
+﻿@model InvoiceReminder.BLL.Features.Documents.Index.DocumentsIndexResult
+
+@{
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+
+@foreach (var doc in Model.Documents)
+{
+    <p>@doc.Name </p>
+}

@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
+using InvoiceReminder.BLL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,10 @@ namespace InvoiceReminder.Web
 
             // register controllers:
             builder.RegisterControllers(typeof(IoCConfig).Assembly);
+
+            // register BLL module:
+            builder.RegisterAssemblyModules(typeof(BusinessLogicLayerModule).Assembly);
+
             var container = builder.Build();
 
             return new AutofacDependencyResolver(container);

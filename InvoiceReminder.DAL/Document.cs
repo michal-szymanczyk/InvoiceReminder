@@ -18,9 +18,7 @@ namespace InvoiceReminder.DAL
         public string Name { get; set; }
         public System.DateTime SubmitedDate { get; set; }
         public string FileHash { get; set; }
-        public byte TypeId { get; set; }
-        public Nullable<short> ReminderId { get; set; }
     
-        public virtual Reminder Reminder { get; set; }
+        public virtual DocumentType DocumentType { get; set; }
     }
 }

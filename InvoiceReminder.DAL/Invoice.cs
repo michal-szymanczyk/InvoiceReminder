@@ -12,9 +12,12 @@ namespace InvoiceReminder.DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class Invoice : Document
+    public partial class Invoice
     {
-        public Nullable<float> NetAmount { get; set; }
-        public Nullable<byte> TaxRate { get; set; }
+        public int Id { get; set; }
+        public float NetAmount { get; set; }
+        public byte TaxRate { get; set; }
+    
+        public virtual Document Document { get; set; }
     }
 }

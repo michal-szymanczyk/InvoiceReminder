@@ -13,7 +13,7 @@ namespace InvoiceReminder.DAL.Repositories
     /// </summary>
     /// <typeparam name="T">Entity type</typeparam>
     internal class GenericRepository<T> : IRepository<T>
-        where T : BaseDataModel
+        where T : class
     {
         // context for DB access
         private DatabaseContext _context;

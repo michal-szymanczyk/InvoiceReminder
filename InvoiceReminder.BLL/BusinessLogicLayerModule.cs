@@ -2,6 +2,7 @@
 using AutoMapper;
 using InvoiceReminder.BLL.Features.Base;
 using InvoiceReminder.BLL.Helpers;
+using InvoiceReminder.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,9 @@ namespace InvoiceReminder.BLL
             builder.RegisterAssemblyTypes(ThisAssembly)
                 .AsClosedTypesOf(typeof(IAsyncRequestHandler<,>))
                 .AsImplementedInterfaces();
+
+            // register DAL layer:
+            builder.RegisterAssemblyModules(typeof(DataAccessLayerModule).Assembly);
         }
     }
 }

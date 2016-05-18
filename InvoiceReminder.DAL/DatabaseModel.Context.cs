@@ -27,6 +27,7 @@ namespace InvoiceReminder.DAL
     
         public virtual DbSet<Document> Documents { get; set; }
         public virtual DbSet<DocumentType> DocumentTypes { get; set; }
+        public virtual DbSet<Invoice> Invoices { get; set; }
         public virtual DbSet<Reminder> Reminders { get; set; }
     }
 }

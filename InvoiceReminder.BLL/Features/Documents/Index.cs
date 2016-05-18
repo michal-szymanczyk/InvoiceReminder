@@ -1,4 +1,5 @@
-﻿using InvoiceReminder.BLL.Features.Base;
+﻿using AutoMapper;
+using InvoiceReminder.BLL.Features.Base;
 using InvoiceReminder.Common.DataModels;
 using InvoiceReminder.Common.DataModels.Documents;
 using InvoiceReminder.DAL.Repositories;
@@ -23,16 +24,18 @@ namespace InvoiceReminder.BLL.Features.Documents
         protected internal class Handler : IAsyncRequestHandler<DocumentsIndexQuery, DocumentsIndexResult>
         {
             private IRepository<DAL.Document> _repository;
+            private IMapper _autoMapper;
 
-            public Handler(IRepository<DAL.Document> repository)
+            public Handler(IRepository<DAL.Document> repository, IMapper autoMapper)
             {
                 _repository = repository;
+                _autoMapper = autoMapper;
             }
 
             public async Task<DocumentsIndexResult> Handle(DocumentsIndexQuery request)
             {
                 return new DocumentsIndexResult {
-                    Documents = AutoMapper.
+                    Documents = _autoMapper.Map<IList<DAL.Document>, IList<DocumentDataModel>>(await _repository.QueryAsync(q => q))
                 };
             }
         }

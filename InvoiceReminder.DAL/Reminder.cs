@@ -14,9 +14,19 @@ namespace InvoiceReminder.DAL
     
     public partial class Reminder
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Reminder()
+        {
+            this.Documents = new HashSet<Document>();
+        }
+    
         public short Id { get; set; }
+        public string Name { get; set; }
         public System.DateTime StartDate { get; set; }
         public Nullable<System.DateTime> EndDate { get; set; }
         public int ReminderInterval { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Document> Documents { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace InvoiceReminder.DAL
 {
     class DatabaseContext : DbContext
     {
-
+        public DbSet<Invoice> Invoices { get; set; }
         public DbSet<Document> Documents { get; set; }
         public DbSet<Reminder> Reminders { get; set; }
         public DbSet<DocumentType> DocCategories { get; set; }

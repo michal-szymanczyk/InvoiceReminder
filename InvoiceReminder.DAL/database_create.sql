@@ -9,20 +9,23 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[FK_DocCategoriesDocuments]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Documents] DROP CONSTRAINT [FK_DocCategoriesDocuments];
+IF OBJECT_ID(N'[dbo].[FK_Documents_ToDocumentTypes]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Documents] DROP CONSTRAINT [FK_Documents_ToDocumentTypes];
 GO
-IF OBJECT_ID(N'[dbo].[FK_RemindersDocuments]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Documents] DROP CONSTRAINT [FK_RemindersDocuments];
+IF OBJECT_ID(N'[dbo].[FK_Documents_ToReminders]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Documents] DROP CONSTRAINT [FK_Documents_ToReminders];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Invoices_inherits_Documents]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Documents_Invoices] DROP CONSTRAINT [FK_Invoices_inherits_Documents];
+IF OBJECT_ID(N'[dbo].[FK_Invoices_ToDocuments]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Invoices] DROP CONSTRAINT [FK_Invoices_ToDocuments];
 GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[Invoices]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Invoices];
+GO
 IF OBJECT_ID(N'[dbo].[Documents]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Documents];
 GO
@@ -31,9 +34,6 @@ IF OBJECT_ID(N'[dbo].[DocumentTypes]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[Reminders]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Reminders];
-GO
-IF OBJECT_ID(N'[dbo].[Documents_Invoices]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Documents_Invoices];
 GO
 
 -- --------------------------------------------------
@@ -56,7 +56,6 @@ CREATE TABLE [dbo].[Reminders] (
 );
 GO
 
-
 CREATE TABLE [dbo].[Documents] (
     [Id]           INT           NOT NULL,
     [Name]         NVARCHAR (50) NOT NULL,
@@ -64,14 +63,21 @@ CREATE TABLE [dbo].[Documents] (
     [FileHash]     NVARCHAR (50) NULL,
     [TypeId]       TINYINT       NOT NULL,
     [ReminderId]   SMALLINT      NULL,
-    [NetAmount] REAL NULL, 
-    [TaxRate] TINYINT NULL, 
     PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [FK_Documents_ToDocumentTypes] FOREIGN KEY ([TypeId]) REFERENCES [dbo].[DocumentTypes] ([Id]),
     CONSTRAINT [FK_Documents_ToReminders] FOREIGN KEY ([ReminderId]) REFERENCES [dbo].[Reminders] ([Id])
 );
 GO
 
+CREATE TABLE [dbo].[Invoices] (
+    [Id]           INT           NOT NULL,
+    [DocumentId]           INT           NOT NULL,
+    [NetAmount] REAL NOT NULL, 
+    [TaxRate] TINYINT NOT NULL, 
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_Invoices_ToDocuments] FOREIGN KEY ([DocumentId]) REFERENCES [dbo].[Documents] ([Id])
+);
+GO
 
 -- --------------------------------------------------
 -- Insert default system data
@@ -92,4 +98,10 @@ VALUES
 (0, N'first default document', GETDATE(), N'testHash', 0, NULL, NULL, NULL),
 (1, N'first invoice', GETDATE(), N'someHash', 1, 0, 5432, 23),
 (2, N'second invoice', GETDATE(), N'someHash2', 1, 0, 321, 8);
+GO
+
+INSERT INTO [dbo].[Invoices]
+VALUES 
+(1, 1, 5432, 23),
+(2, 2, 321, 8);
 GO
