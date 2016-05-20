@@ -100,7 +100,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="InvoiceReminderDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="InvoiceReminderDBEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="InvoiceReminderContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Documents" EntityType="InvoiceReminderDBModel.Document" />
           <EntitySet Name="DocumentTypes" EntityType="InvoiceReminderDBModel.DocumentType" />
           <EntitySet Name="Invoices" EntityType="InvoiceReminderDBModel.Invoice" />
@@ -173,7 +173,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="InvoiceReminderDBModelStoreContainer" CdmEntityContainer="InvoiceReminderDBEntities">
+        <EntityContainerMapping StorageEntityContainer="InvoiceReminderDBModelStoreContainer" CdmEntityContainer="InvoiceReminderContext">
           <EntitySetMapping Name="Documents">
             <EntityTypeMapping TypeName="InvoiceReminderDBModel.Document">
               <MappingFragment StoreEntitySet="Documents">

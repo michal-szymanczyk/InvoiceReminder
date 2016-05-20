@@ -16,9 +16,9 @@ namespace InvoiceReminder.DAL.Repositories
         where T : class
     {
         // context for DB access
-        private DatabaseContext _context;
+        private DbContext _context;
 
-        public GenericRepository(DatabaseContext context)
+        public GenericRepository(DbContext context)
         {
             _context = context;
         }

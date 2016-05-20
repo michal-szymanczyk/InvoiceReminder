@@ -95,9 +95,9 @@ GO
 
 INSERT INTO [dbo].[Documents]
 VALUES 
-(0, N'first default document', GETDATE(), N'testHash', 0, NULL, NULL, NULL),
-(1, N'first invoice', GETDATE(), N'someHash', 1, 0, 5432, 23),
-(2, N'second invoice', GETDATE(), N'someHash2', 1, 0, 321, 8);
+(0, N'first default document', GETDATE(), N'testHash', 0, NULL),
+(1, N'first invoice', GETDATE(), N'someHash', 1, 0),
+(2, N'second invoice', GETDATE(), N'someHash2', 1, 0);
 GO
 
 INSERT INTO [dbo].[Invoices]

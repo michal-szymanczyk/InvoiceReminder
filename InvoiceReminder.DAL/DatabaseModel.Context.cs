@@ -13,10 +13,10 @@ namespace InvoiceReminder.DAL
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class InvoiceReminderDBEntities : DbContext
+    public partial class InvoiceReminderContext : DbContext
     {
-        public InvoiceReminderDBEntities()
-            : base("name=InvoiceReminderDBEntities")
+        public InvoiceReminderContext()
+            : base("name=InvoiceReminderContext")
         {
         }
     
