@@ -97,8 +97,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\InvoiceReminderDB.mdf" />
+    <Content Include="App_Data\InvoiceReminderDB_log.ldf">
+      <DependentUpon>InvoiceReminderDB.mdf</DependentUpon>
+    </Content>
     <Content Include="Global.asax" />
-    <Content Include="InvoiceReminderDB.mdf" />
+    <Content Include="gulpfile.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -115,6 +119,9 @@
     <Content Include="packages.config" />
     <Content Include="Views\Shared\_MasterLayout.cshtml" />
     <Content Include="Views\Documents\Index.cshtml" />
+    <Content Include="package.json" />
+    <Content Include=".bowerrc" />
+    <Content Include="bower.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -123,7 +130,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="wwwroot\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\InvoiceReminder.BLL\InvoiceReminder.BLL.csproj">
