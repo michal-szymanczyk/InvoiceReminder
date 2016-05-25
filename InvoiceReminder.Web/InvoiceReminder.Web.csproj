@@ -104,6 +104,27 @@
     <Content Include="Global.asax" />
     <Content Include="gulpfile.js" />
     <Content Include="Web.config" />
+    <Content Include="wwwroot\css\template\components.css" />
+    <Content Include="wwwroot\css\template\responsee.css" />
+    <Content Include="wwwroot\css\template\template-style.css" />
+    <Content Include="wwwroot\font\mfglabsiconset-webfont.svg" />
+    <Content Include="wwwroot\img\about.jpg" />
+    <Content Include="wwwroot\img\client1.jpg" />
+    <Content Include="wwwroot\img\client2.jpg" />
+    <Content Include="wwwroot\img\client3.jpg" />
+    <Content Include="wwwroot\img\contact.jpg" />
+    <Content Include="wwwroot\img\first.jpg" />
+    <Content Include="wwwroot\img\por1.jpg" />
+    <Content Include="wwwroot\img\por2.jpg" />
+    <Content Include="wwwroot\img\por3.jpg" />
+    <Content Include="wwwroot\img\por4.jpg" />
+    <Content Include="wwwroot\img\por5.jpg" />
+    <Content Include="wwwroot\img\por6.jpg" />
+    <Content Include="wwwroot\img\por7.jpg" />
+    <Content Include="wwwroot\img\pricing.jpg" />
+    <Content Include="wwwroot\img\second.jpg" />
+    <Content Include="wwwroot\img\third.jpg" />
+    <Content Include="wwwroot\js\shared.js" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\IoCConfig.cs" />
@@ -117,21 +138,24 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
-    <Content Include="Views\Shared\_MasterLayout.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Documents\Index.cshtml" />
     <Content Include="package.json" />
     <Content Include=".bowerrc" />
     <Content Include="bower.json" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="wwwroot\css\global.less" />
+    <Content Include="wwwroot\font\mfglabsiconset-webfont.eot" />
+    <Content Include="wwwroot\font\mfglabsiconset-webfont.ttf" />
+    <Content Include="wwwroot\font\mfglabsiconset-webfont.woff" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="wwwroot\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\InvoiceReminder.BLL\InvoiceReminder.BLL.csproj">
       <Project>{b2a498a7-dc86-4206-8de1-8c198394640c}</Project>

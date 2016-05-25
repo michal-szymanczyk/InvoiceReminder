@@ -38,16 +38,11 @@ gulp.task('min:js', function () {
 });
 
 gulp.task('min:css', function () {
-    return gulp.src([paths.css, '!' + paths.minCss], { base: '.' })
+    return gulp.src([paths.css, '!' + paths.minCss, paths.less], { base: '.' })
         .pipe(concat(paths.concatCssDest))
+        .pipe(less())
         .pipe(cssmin())
         .pipe(gulp.dest('.'));
 });
 
 gulp.task('min', ['min:js', 'min:css']);
-
-//gulp.task('less', function () {
-//    return gulp.src(paths.less)
-//    .pipe(less())
-//    .pipe(gulp.dest());
-//});
