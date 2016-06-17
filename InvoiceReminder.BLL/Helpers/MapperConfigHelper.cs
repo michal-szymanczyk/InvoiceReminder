@@ -14,10 +14,10 @@ namespace InvoiceReminder.BLL.Helpers
         public IMapper CreateMapper()
         {
             var config = new MapperConfiguration(cfg => {
-                cfg.CreateMap<DAL.Document, DocumentDataModel>();
-                cfg.CreateMap<DAL.Invoice, InvoiceDataModel>();
-                cfg.CreateMap<DAL.DocumentType, DocumentTypeDataModel>();
-                cfg.CreateMap<DAL.Reminder, ReminderDataModel>();
+                //cfg.CreateMap<DAL.Document, DocumentDataModel>();
+                //cfg.CreateMap<DAL.Invoice, InvoiceDataModel>();
+                //cfg.CreateMap<DAL.DocumentType, DocumentTypeDataModel>();
+                //cfg.CreateMap<DAL.Reminder, ReminderDataModel>();
             });
             return config.CreateMapper();
         }

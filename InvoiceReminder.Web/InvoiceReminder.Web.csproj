@@ -97,10 +97,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\InvoiceReminderDB.mdf" />
-    <Content Include="App_Data\InvoiceReminderDB_log.ldf">
-      <DependentUpon>InvoiceReminderDB.mdf</DependentUpon>
-    </Content>
     <Content Include="Global.asax" />
     <Content Include="gulpfile.js" />
     <Content Include="Web.config" />
@@ -155,7 +151,9 @@
     <Content Include="wwwroot\font\mfglabsiconset-webfont.ttf" />
     <Content Include="wwwroot\font\mfglabsiconset-webfont.woff" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\InvoiceReminder.BLL\InvoiceReminder.BLL.csproj">
       <Project>{b2a498a7-dc86-4206-8de1-8c198394640c}</Project>

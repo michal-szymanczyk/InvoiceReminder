@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace InvoiceReminder.Common.DataModels
 {
-    public class BaseDataModel
+    public class BaseDataModel<T>
     {
-        public int Id { get; set; }
+        public T Id { get; set; }
     }
 }

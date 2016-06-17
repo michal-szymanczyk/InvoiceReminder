@@ -40,24 +40,28 @@ GO
 -- Creating all tables
 -- --------------------------------------------------
 CREATE TABLE [dbo].[DocumentTypes] (
-    [Id]   TINYINT           NOT NULL,
+    [Id]   TINYINT           IDENTITY(1,1),
     [Name] NVARCHAR (50) NOT NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 GO
 
+-- Reminder Interval values:
+-- 1 - every day
+-- 2 - every week
+-- 3 - monthly
 CREATE TABLE [dbo].[Reminders] (
-    [Id]               SMALLINT      NOT NULL,
+    [Id]               SMALLINT      IDENTITY(1,1),
     [Name]         NVARCHAR (50) NOT NULL,
     [StartDate]        DATETIME NOT NULL,
     [EndDate]          DATETIME NULL,
-    [ReminderInterval] INT      NOT NULL,
+    [ReminderInterval] TINYINT      NOT NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 GO
 
 CREATE TABLE [dbo].[Documents] (
-    [Id]           INT           NOT NULL,
+    [Id]           INT           IDENTITY(1,1),
     [Name]         NVARCHAR (50) NOT NULL,
     [SubmitedDate] DATETIME      NOT NULL,
     [FileHash]     NVARCHAR (50) NULL,
@@ -70,11 +74,9 @@ CREATE TABLE [dbo].[Documents] (
 GO
 
 CREATE TABLE [dbo].[Invoices] (
-    [Id]           INT           NOT NULL,
-    [DocumentId]           INT           NOT NULL,
+    [DocumentId]           INT           NOT NULL UNIQUE,
     [NetAmount] REAL NOT NULL, 
-    [TaxRate] TINYINT NOT NULL, 
-    PRIMARY KEY CLUSTERED ([Id] ASC),
+    [TaxRate] TINYINT NOT NULL,
     CONSTRAINT [FK_Invoices_ToDocuments] FOREIGN KEY ([DocumentId]) REFERENCES [dbo].[Documents] ([Id])
 );
 GO
@@ -82,26 +84,31 @@ GO
 -- --------------------------------------------------
 -- Insert default system data
 -- --------------------------------------------------
-INSERT INTO [dbo].[DocumentTypes]
-VALUES (0, N'standard'), (1, N'invoice');
-GO
 
--- --------------------------------------------------
--- Insert test data
--- --------------------------------------------------
-INSERT INTO [dbo].[Reminders]
-VALUES (0, N'every 30 days', GETDATE(), NULL, 2592000);
-GO
 
-INSERT INTO [dbo].[Documents]
-VALUES 
-(0, N'first default document', GETDATE(), N'testHash', 0, NULL),
-(1, N'first invoice', GETDATE(), N'someHash', 1, 0),
-(2, N'second invoice', GETDATE(), N'someHash2', 1, 0);
-GO
+INSERT INTO dbo.DocumentTypes VALUES (N'default'); -- should be id = 1
+INSERT INTO dbo.DocumentTypes VALUES (N'invoice'); -- should be id = 2
 
-INSERT INTO [dbo].[Invoices]
-VALUES 
-(1, 1, 5432, 23),
-(2, 2, 321, 8);
+INSERT INTO dbo.Reminders VALUES (N'monthly reminder', GETDATE(), NULL, 3);
+INSERT INTO dbo.Reminders VALUES (N'weekly reminder', GETDATE(), NULL, 2);
+INSERT INTO dbo.Reminders VALUES (N'daily reminder', GETDATE(), NULL, 1);
+INSERT INTO dbo.Reminders VALUES (N'no reminder', GETDATE(), NULL, 1);
+
+
+DECLARE @stdDocTypeId AS TINYINT;
+DECLARE @invoiceTypeId AS TINYINT;
+DECLARE @monthlyReminderId AS TINYINT;
+
+SET @stdDocTypeId = (SELECT TOP(1) Id FROM DocumentTypes WHERE Name = N'default');
+SET @invoiceTypeId = (SELECT TOP(1) Id FROM DocumentTypes WHERE Name = N'invoice');
+SET @monthlyReminderId = (SELECT TOP(1) Id FROM Reminders WHERE Name = N'monthly reminder');
+
+INSERT INTO Documents VALUES 
+(N'first standard document', GETDATE(), N'someHASH', @stdDocTypeId, @monthlyReminderId),
+(N'first invoice', GETDATE(), N'someHASH2', @invoiceTypeId, @monthlyReminderId),
+(N'second invoice', GETDATE(), N'someHASH3', @invoiceTypeId, @monthlyReminderId);
+
+
+INSERT INTO Invoices SELECT Id, 123, 23 FROM Documents WHERE TypeId = @invoiceTypeId;
+
 GO

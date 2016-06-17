@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace InvoiceReminder.Common.DataModels.Documents
 {
-    public class DocumentDataModel : BaseDataModel
+    public class DocumentDataModel : BaseDataModel<int>
     {
         public string Name { get; set; }
         public DateTime SubmitedDate { get; set; }
         public string FileHash { get; set; }
 
-        public virtual DocumentTypeDataModel Category { get; set; }
+        //public virtual DocumentTypeDataModel DocType { get; set; }
         public virtual ReminderDataModel Reminder { get; set; }
     }
 }

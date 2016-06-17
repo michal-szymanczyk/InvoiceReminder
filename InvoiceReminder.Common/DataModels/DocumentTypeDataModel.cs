@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InvoiceReminder.Common.DataModels
 {
-    public class DocumentTypeDataModel : BaseDataModel
+    public class DocumentTypeDataModel : BaseDataModel<short>
     {
         public string Name { get; set; }
     }

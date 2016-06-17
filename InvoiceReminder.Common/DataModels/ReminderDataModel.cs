@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InvoiceReminder.Common.DataModels
 {
-    public class ReminderDataModel : BaseDataModel
+    public class ReminderDataModel : BaseDataModel<short>
     {
         public string Name { get; set; }
         public DateTime StartDate { get; set; }

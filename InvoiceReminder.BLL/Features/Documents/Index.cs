@@ -23,19 +23,18 @@ namespace InvoiceReminder.BLL.Features.Documents
 
         protected internal class Handler : IAsyncRequestHandler<DocumentsIndexQuery, DocumentsIndexResult>
         {
-            private IRepository<DAL.Document> _repository;
+            private IRepository<DocumentDataModel> _repository;
             private IMapper _autoMapper;
 
-            public Handler(IRepository<DAL.Document> repository, IMapper autoMapper)
+            public Handler(IRepository<DocumentDataModel> repository)
             {
                 _repository = repository;
-                _autoMapper = autoMapper;
             }
 
             public async Task<DocumentsIndexResult> Handle(DocumentsIndexQuery request)
             {
                 return new DocumentsIndexResult {
-                    Documents = _autoMapper.Map<IList<DAL.Document>, IList<DocumentDataModel>>(await _repository.QueryAsync(q => q))
+                    Documents = await _repository.QueryAsync(q => q)
                 };
             }
         }

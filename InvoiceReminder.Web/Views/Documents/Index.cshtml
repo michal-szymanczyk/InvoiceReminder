@@ -15,4 +15,9 @@
 @foreach (var doc in Model.Documents)
 {
     <p>@doc.Name </p>
+    if (doc is InvoiceReminder.Common.DataModels.Documents.InvoiceDataModel)
+    {
+        var inv = (InvoiceReminder.Common.DataModels.Documents.InvoiceDataModel)doc;
+        <span>@inv.NetAmount, @inv.TaxRate</span>
+    }
 }
